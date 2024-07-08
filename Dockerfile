@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/garimaElectrical-0.0.1-SNAPSHOOT.jar garimaElectrical.jar
+COPY --from=build /target/garimaElectrical-0.0.1-SNAPSHOT.jar garimaElectrical.jar
 EXPOSE 8080
 ENTRYPOINT [ "java"."-jar","garimaElectrical.jar" ]
