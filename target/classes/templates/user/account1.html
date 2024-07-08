@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base3::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+	
+</head>
+<body>
+	<section>
+		
+		<div class="c">
+			<div class="container">
+			        <div class="sidenav">
+			            <h1>Orders</h1>
+			            <ul>
+			                <a href="#"><li class="list-group ">My Orders</li></a>
+			                <a href="/logout"><li class="list-group">Sign out</li></a>
+			            </ul>
+			        </div>
+			        <div class="content">
+						<p style="text-align:right; margin-right:-50px;" th:text="${userInfo.email}"></p>
+						<h5 style="text-align: left; margin-top:60px;">Showing All Orders</h5>
+						<p style="text-align: center;">This is oder page</p>
+			        </div>
+			    </div>
+		</div>
+		</section>
+			</body>
+			</html>
+			

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>	Garima Electrical - signup</title>
+</head>
+<body>
+	<section>
+    <div class="container" style="width: 60%;">
+        <div class="panel left-panel"		style="background-color: rgb(231,206,255);">
+            <h1 style="margin-top: 60px; margin-bottom: 25px;">Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+			<a th:href="@{/signin}"	style="font-size:large; border-color:rgb(231,206,255); border-radius: 3%; background-color: white; color: rgb(0, 0, 0); width: 300px; height: 50px; margin-top: 20px;" class="btn btn-dark text-center">Sign In</a>
+        </div>
+        <div class="panel right-panel" style="background-color:white;" >
+            <div class="form-container">
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+				<p style="height: 1px; width: 1px; " class="text-left" th:text="${session.message.content}" ></p>
+					  <th:block th:text="${@sessionHelper.removeMessage()}"></th:block> 						
+				 </div>
+                <h1 style="margin-top: 70px;">Create Account</h1>
+				<div class="social-button text-center" style="margin-top:10px; margin-bottom:10px;">
+								<a style="margin-right:20px;" th:href="@{/oauth2/authorization/google}" class="icon"><i class="fa-brands fa-google fa-bounce fa-2xl" style="color: #B197FC;"></i></a>
+								<a th:href="@{/oauth2/authorization/github}" class="icon"><i class="fa-brands fa-github fa-bounce fa-2xl" style="color: #B197FC;"></i></a>
+				               </div>
+                <p>or use your email for registration</p>
+				<form th:object="${login}" th:action="@{/postlogin}" method="post">
+					<input name="name" th:value="${login.name}" th:field="*{name}" type="text" placeholder="Name" required>
+					<input name="email" th:value="${login.email}" type="email" th:field="*{email}" placeholder="Email" required>
+					<input name="password" type="password" th:field="*{password}" placeholder="Password" required>
+                    <button type="submit" style="background-color: rgb(231,206,255); margin-top:20px;">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base1::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+	
+</head>
+<body>
+	<section>
+		
+		<div class="container mt-5">
+		    <div class="row">
+		        <div class="col-sm-5 d-flex justify-content-center" >
+		            <img class="mt-5" height="300px" width="300px"  th:src="@{${'/productImages/' + product.imageName}}"
+		                 alt="">
+		        </div>
+		        <div class="col-sm-7 mt-5">
+		            <h2 th:text="${product.name}"></h2>
+		            <p th:text="${product.category.name}"></p>
+		            <h2>₹ <span th:text="${product.price}"></span></h2>
+		            <h5>Weight:
+		                <spna th:text="${product.weight}"></spna> grams.
+		            </h5>
+		            <p th:text="${product.description}"></p>
+		            <a href="" th:href="@{/addToCart/{id}(id = ${product.pid})}" class="btn btn-primary">Add to cart</a>
+		        </div>
+		    </div>
+		</div>
+		
+	  </section>
+     </body>
+	</html>

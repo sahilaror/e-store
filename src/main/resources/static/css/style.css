@@ -1,0 +1,93 @@
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.left-panel {
+    background-color:rgb(231, 206, 255);
+}
+
+.right-panel {
+    background-color: #fff;
+}
+
+.form-container {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+}
+
+.form-container .social-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-container .social-buttons button {
+ 
+    background:rgb(231, 206, 255) ;
+    cursor: pointer;
+    border-radius:30%;
+	border-color: black;
+	border-width: 4px;
+	
+}
+
+.form-container p {
+    margin-bottom: 10px;
+}
+
+.form-container form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-container form button {
+    padding: 10px;
+    background-color: rgb(231, 206, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color:rgb(0, 0, 0);
+}
+
+.form-container form button:hover {
+    background-color:rgb(231, 206, 255);
+}
+
+.link-button {
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color:rgb(231, 206, 255);
+    text-decoration: underline;
+}
+
+
+
