@@ -2,7 +2,6 @@ package com.web.garimaElectrical.config;
 
 import java.io.IOException;
 import java.util.UUID;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,9 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
-
 import com.web.garimaElectrical.model.user;
 import com.web.garimaElectrical.repository.userRepo;
 import com.web.garimaElectrical.service.userService;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -26,7 +23,6 @@ public class authenticationSuccess implements AuthenticationSuccessHandler{
 
 	Logger logger=LoggerFactory.getLogger(authenticationSuccess.class);
 	
-
 	user user1=new user();
 	
 	@Autowired
@@ -55,6 +51,9 @@ public class authenticationSuccess implements AuthenticationSuccessHandler{
 		user1.setId(UUID.randomUUID().hashCode());
 		user1.setRole("USER");
 		user1.setPassword("password");
+		user1.setCoupon("GENEW100");
+		user1.setCoupon1("GE10%");
+		user1.setCoupon2("GE20%");
 		
 		if (authenticationSuccess.equalsIgnoreCase("google")) {
 			user1.setName(oAuth2User.getAttribute("name").toString());
@@ -63,7 +62,7 @@ public class authenticationSuccess implements AuthenticationSuccessHandler{
 			user1.setProvider("google");
 			
 		}
-		else if (authenticationSuccess.equalsIgnoreCase("github")) {
+		else if (authenticationSuccess.equalsIgnoreCase("github")) {	
 			String email=oAuth2User.getAttribute("email") !=null ?
 					oAuth2User.getAttribute("email").toString() : oAuth2User.getAttribute("login").toString()+"@gmail.com";
 			String picture=oAuth2User.getAttribute("avatar_url").toString();

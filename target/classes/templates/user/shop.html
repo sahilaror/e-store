@@ -9,7 +9,7 @@
 <body>
 	<section>
 		
-		<div class="container" style="margin-top:70px">
+		<div class="container" style="margin-top:70px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
 		    <div class="row">
 		        <div class="col-sm-3">
 		            <h4>Categories</h4>
@@ -24,7 +24,7 @@
 		        <div class="col-sm-9">
 		            <div class="card" style="margin-top: 20px;" th:each="product : ${products}">
 		                <div class="row no-gutters">
-		                    <div class="col-sm-4 d-flex justify-content-center">
+		                    <div class="col-sm-4 d-flex justify-content-center" style="margin-top:25px;">
 		                        <img class="" height="150px" width="150px" th:src="@{${'/productImages/' + product.imageName}}" th:alt="${product.name}">
 		                    </div>
 		                    <div class="col-sm-5 d-flex justify-content-center">

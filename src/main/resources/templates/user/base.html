@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en" xmlns:th="https://www.thymeleaf.org/" th:fragment="Layout(content)">
   <head>
 	
@@ -27,7 +28,7 @@
 			<a class="btn" style="outline: none; box-shadow: none;" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
 				<i class="fa-solid fa-bars-staggered  fa-lg" style="color: rgb(0, 0, 0); margin-left:480px;"></i>
 			</a>
-			<a th:href="@{/user/home} "><img th:src="@{/image/logo-color.png}"  src="../static/image/logo-color.png" width="130" height="45" class="d-inline-block align-top text-center" alt="" style="margin-right:435px; margin-left:30px">
+			<a th:href="@{/user/home} "><img th:src="@{/image/logo-color.png}"  src="../static/image/logo-color.png" width="130" height="45" class="d-inline-block align-top text-center" alt="" style="margin-right:435px; margin-left:50px">
 											</a>
 			</div>
 			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -55,14 +56,12 @@
 			  </div>
 			</div>
 			<li class="nav-item active">
-				        <a class="nav-link" th:href="@{/signin}" style="color: black; font-size: 16px; font-weight: 500;">Login</a>
+				        <a class="nav-link" th:href="@{/signin}" style="color: black; font-size: 16px; font-weight: 500;"><img style=" width:30px; height:30px;" th:src="@{/image/icons8-circled-user-female-skin-type-6.gif}" alt="Example GIF" ></a>
 				      </li>
-	      <li class="nav-item">
-	        <a class="nav-link"	th:href="@{/user/shop}"	style="color: black; font-size: 16px; font-weight:500;">Shop</a>
-	      </li>
-		  <li class="nav-item active">
-		      <span class="nav-link" th:text="${cartCount}"></span>
-		  </li>
+					  <li class="nav-item">
+					  	        <a class="nav-link"	th:href="@{/user/shop}"	style="color: black; font-size: 16px; font-weight: 500;"><img style=" width:30px; height:30px;" th:src="@{/image/icons8-shop.gif}" alt="Example GIF" ></a>
+					  	      </li>
+		 
 	    </ul>
 	  </div>
 	  

@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.web.garimaElectrical.global.globalVariable;
 import com.web.garimaElectrical.helper.nameHelper;
 import com.web.garimaElectrical.repository.userRepo;
 import com.web.garimaElectrical.service.categoryService;
+import com.web.garimaElectrical.service.orderService;
 import com.web.garimaElectrical.service.productService;
+
+import jakarta.servlet.http.HttpSession;
+
+import com.web.garimaElectrical.model.cart;
+import com.web.garimaElectrical.model.orders;
 import com.web.garimaElectrical.model.user;
 
 
@@ -24,6 +29,9 @@ import com.web.garimaElectrical.model.user;
 public class userController {
 	
 	Logger logger=LoggerFactory.getLogger(userController.class);
+	
+	@Autowired
+    private orderService orderService;
 	
 	@Autowired
 	categoryService categoryService;
@@ -39,22 +47,31 @@ public class userController {
 		return new ModelAndView("user/home");
 	}
 	@GetMapping("/shop")
-	public ModelAndView shop(Model model) {
-		model.addAttribute("cartCount", globalVariable.cart.size());
+	public ModelAndView shop(Model model,Authentication authentication) {
+		String username=nameHelper.getname(authentication);
+		user user = userRepo.findByEmail(username).get();
+        cart cart = user.getCart();
+        model.addAttribute("count", cart.getItems().size());
 		model.addAttribute("categories", categoryService.show());
 		model.addAttribute("products", productService.show());
 		return new ModelAndView("user/shop");
 	}
 	@GetMapping("/shop/category/{id}")
-	public ModelAndView shopCategory(@PathVariable("id") Integer id,Model model) {
-		model.addAttribute("cartCount", globalVariable.cart.size());
+	public ModelAndView shopCategory(@PathVariable("id") Integer id,Model model,Authentication authentication) {
+		String username=nameHelper.getname(authentication);
+		user user = userRepo.findByEmail(username).get();
+        cart cart = user.getCart();
+        model.addAttribute("count", cart.getItems().size());
 		model.addAttribute("categories",categoryService.show());
 		model.addAttribute("products",productService.getAllProductByCategory(id));
 		return new ModelAndView("user/shop");
 	}
 	@GetMapping("/shop/viewproduct/{id}")
-	public ModelAndView viewProduct(@PathVariable("id") Integer id,Model model) {
-		model.addAttribute("cartCount", globalVariable.cart.size());
+	public ModelAndView viewProduct(@PathVariable("id") Integer id,Model model,Authentication authentication) {
+		String username=nameHelper.getname(authentication);
+		user user = userRepo.findByEmail(username).get();
+        cart cart = user.getCart();
+        model.addAttribute("count", cart.getItems().size());
 		model.addAttribute("product",productService.update(id).get());
 		return new ModelAndView("user/viewProduct");
 	}
@@ -71,19 +88,25 @@ public class userController {
 		return new ModelAndView("user/refundPolicy");
 	}
 	@GetMapping("/account")
-	public ModelAndView accout(Authentication authentication,Model model)
+	public ModelAndView accout(Authentication authentication,Model model,HttpSession httpSession)
 	{
 		String userName=nameHelper.getname(authentication);
 		user user=userRepo.findByEmail(userName).get();
 		String url=user.getImageUrl();
 		model.addAttribute("userImg",url);
-		System.out.println(url);
-		model.addAttribute("userInfo", user);
-		if (globalVariable.cart.size()==0) {
+		model.addAttribute("userInfo", userName);
+		cart cart1=new cart();
+		Integer oi=cart1.getId();
+		System.out.println(oi);
+		if (oi==null) {
 			return new ModelAndView("user/account");
 		}
 		else {
-			return new ModelAndView("user/account1");	
+			        cart cart =user.getCart();
+					double total1=(double)httpSession.getAttribute("finaltotal");
+			        orders order = orderService.createOrderFromCart(cart,total1);
+			        model.addAttribute("order", order);
+			        return new ModelAndView("user/account1");
+			    }	
 		}
-	}
 }

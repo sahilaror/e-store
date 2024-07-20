@@ -57,15 +57,15 @@ public class forgotController {
 				"</h1>"+
 				"</n>"+
 				"<h4>"+
-				"We noticed that you're trying to verify your email address but have forgotten your OTP (One-Time Password). No worries, we're here to help!"+
+				"We noticed that you're trying to signin with your email address but you forgot your password. No worries, we're here to help!"+
 				"</h4>"+
 				"</n>"+
 				"<h2>"+
-				"OTP for generate your new password is:-"+"<b>"+otpGen+
+				"OTP for your new password is:-"+"<b>"+otpGen+
 				"</h2>"+
 				"</n>"+
 				"<h4>"+
-				"If you continue to experience issues or have any questions, please don't hesitate to reach out to our support team at sahilarora01792@gmail.com or call us at xxxxxxxxxx. We're here to assist you!"+
+				"If you continue to experience issues or have any questions, please don't hesitate to reach out to our support team at garimaelectrical01792@gmail.com or call us at xxxxxxxxxx. We're here to assist you!"+
 				"</h4>"+
 				"</n>"+
 				"<h4>"+

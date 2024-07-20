@@ -20,11 +20,11 @@ public class myConfig  {
 	authenticationSuccess handler;
 	
 	@Bean
-	public UserDetailsService getUserdetailsService() {
+	 UserDetailsService getUserdetailsService() {
 		return new userdetailservice();
 	}
 	@Bean
-	public BCryptPasswordEncoder getBCryptPasswordEncoder() {
+	 BCryptPasswordEncoder getBCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
@@ -35,9 +35,10 @@ public class myConfig  {
 		return dao;
 	}
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	 SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(authorized ->{
 			authorized.requestMatchers("/signup","/home","/about","/postlogin","/css/**","/js/**","/productImages/**","/bannerImg/**","/image/**","/signin","/forgot","/send-otp","/change-password","/new-password","/cart","/user/home").permitAll();
+			authorized.requestMatchers("/admin/**").hasAuthority("ADMIN");
 //			authorized.requestMatchers("/admin/**").hasRole("ADMIN");
 //			authorized.requestMatchers("/user/**").hasRole("USER");
 			authorized.anyRequest().authenticated();
@@ -46,7 +47,7 @@ public class myConfig  {
 			form.loginPage("/signin")
 			.loginProcessingUrl("/dologin")
 			.successHandler(new AuthenticationSuccessHandler())
-		);
+		); 
 		
 		http.oauth2Login(form->{
 			form.loginPage("/signin")

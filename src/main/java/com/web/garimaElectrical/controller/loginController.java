@@ -38,6 +38,9 @@ public class loginController {
 			user.setImageUrl("https://us.123rf.com/450wm/timbrk/timbrk1403/timbrk140300061/26566069-lightning-gold-symbol-on-a-black-background.jpg");
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			user.setProvider("SELF");
+			user.setCoupon("GENEW100");
+			user.setCoupon1("GE10%");
+			user.setCoupon2("GE20%");
 			user.setRole("USER");
 			userService.save(user);
 			model.addAttribute("login",new user());
@@ -50,6 +53,7 @@ public class loginController {
 		catch (Exception e) {
 			model.addAttribute("login", user);
 			session.setAttribute("message", new message("Something Went Wrong!"+e.getMessage(),"alert-danger"));
+
 			RedirectView rd=new RedirectView();
 			rd.setUrl("/signup");
 			return new ModelAndView(rd);

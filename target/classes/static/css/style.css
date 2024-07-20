@@ -89,5 +89,28 @@
     text-decoration: underline;
 }
 
-
-
+.password-container {
+            position: relative;
+           
+        }
+        .password-container input[type="password"],
+        .password-container input[type="text"] {
+            width: 100%;
+            padding-right: 40px; /* Adjust padding to accommodate the eye icon */
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 25%;
+            transform: translateY(-50%);
+			border:0.1px white;
+			background: none;
+			outline: white;
+			height:2px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+        }
+		
+		.toggle-password:hover {
+		    color: #333;
+		}

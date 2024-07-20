@@ -30,7 +30,11 @@
 				<form th:object="${login}" th:action="@{/postlogin}" method="post">
 					<input name="name" th:value="${login.name}" th:field="*{name}" type="text" placeholder="Name" required>
 					<input name="email" th:value="${login.email}" type="email" th:field="*{email}" placeholder="Email" required>
-					<input name="password" type="password" th:field="*{password}" placeholder="Password" required>
+					<div class="password-container">
+					                       <input style="width:270px;" type="password" placeholder="Password" id="password" th:field="*{password}" required>
+										<button style="margin-left:-40px; height: 28px; width:28px; margin-top:2px; border:0.1px white;  text-decoration: none; position: absolute; background-color:white;" type="button" id="togglePassword" class="toggle-password">
+											<i style=" color: rgb(54, 54, 54); border:0.1px white; height:10px; width:10px;" id="eyeIcon" class="fa fa-eye"></i>
+					                   </div>
                     <button type="submit" style="background-color: rgb(231,206,255); margin-top:20px;">Sign Up</button>
                 </form>
             </div>

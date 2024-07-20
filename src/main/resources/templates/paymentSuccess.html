@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>	Garima Electrical - Payment Success</title>
+	<link rel="icon" type="image/png/jpg"  href="https://us.123rf.com/450wm/timbrk/timbrk1403/timbrk140300061/26566069-lightning-gold-symbol-on-a-black-background.jpg">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .card {
+            background-color:#000000;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 40px #4caf50;
+            text-align: center;
+            width: 350px;
+			height:auto;
+            position: relative;
+        }
+
+        .checkmark {
+            width: 50px;
+            height: 50px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pop 0.5s ease-in-out;
+        }
+
+        .checkmark::before {
+            content: '✔';
+            color: white;
+            font-size: 24px;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        .card h1 {
+            font-size: 24px;
+            margin: 40px 0 10px;
+        }
+
+        .card p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .amount {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+			color: white;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 5px 0;
+        }
+
+        .details div {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+
+        .details div span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .pdf-button {
+            background-color: #4caf50;
+            color:#000000;
+            padding: 10px 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .pdf-button:hover {
+            background-color: 			rgb(84, 169, 82);
+			text-decoration: none;
+        }
+		
+		.date-row {
+		           display: flex;
+		           justify-content: center;
+		           align-items: center;
+		           font-family: Arial, sans-serif;
+				   margin-left:30px;
+		           font-size: 16px;
+		       }
+		
+		       .date-row span {
+		           margin: 0 2px; /* Adjust spacing between elements */
+		       }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="checkmark"></div>
+        <h1>Payment Success!</h1>
+        <p>Your payment has been successfully done.</p>
+        <div class="amount" >USD <span th:text="${ct}"></span></div>
+        <div class="details">
+            <div>
+				<span>Sender Name</span>
+				<span th:text="${uname}"></span>
+            </div>
+            <div>
+                <span>Payment Time</span>
+				<div class="date-row">
+				       <span th:text="${day}"></span>
+					   <span>/</span>
+				       <span th:text="${month}"></span>
+					   <span>/</span>
+				       <span th:text="${year}"></span>
+					   
+					   <span th:text=" ${hours}"></span>
+					   <span>:</span>
+					   <span th:text="${min}"></span>
+				   </div>
+            </div>
+            <div>
+                <span>Payment Method</span>
+               			Paypal
+            </div>
+            <div>		
+				<span>Ref Number</span>
+				<span th:text="${ran}"></span>
+            </div>
+        </div>
+        <a th:href="@{/user/shop}" class="pdf-button">Go to Shop</a>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+

@@ -15,8 +15,8 @@
 	<link rel="icon" type="image/png/jpg"  href="https://us.123rf.com/450wm/timbrk/timbrk1403/timbrk140300061/26566069-lightning-gold-symbol-on-a-black-background.jpg">
   </head>
   <body style="background-color:   rgb(251, 251, 251)">
-    <div>
-	<nav class="navbar navbar-expand-sm fixed-top navbar-light  py-2" style="background-color: white; text-decoration: none; border-bottom: 1px solid rgb(192, 192, 192);">
+    <div >
+	<nav class="navbar navbar-expand-sm fixed-top navbar-light  py-2" style=" background-color: white; text-decoration: none; border-bottom: 1px solid rgb(192, 192, 192);">
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -24,9 +24,9 @@
 	    <ul class="navbar-nav  ml-auto text-uppercase">
 			<div class="align-self-center text-center">
 			<a class="btn" style="outline: none; box-shadow: none;" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-				<i class="fa-solid fa-bars-staggered  fa-lg" style="color: rgb(0, 0, 0); margin-left:520px;"></i>
+				<i class="fa-solid fa-bars-staggered  fa-lg" style="color: rgb(0, 0, 0); margin-left:580px;"></i>
 			</a>
-			<a th:href="@{/user/home} "><img th:src="@{/image/logo-color.png}"  src="../static/image/logo-color.png" width="130" height="45" class="d-inline-block align-top text-center" alt="" style="margin-right:300px; margin-left:30px">
+			<a th:href="@{/user/home} "><img th:src="@{/image/logo-color.png}"  src="../static/image/logo-color.png" width="130" height="45" class="d-inline-block align-top text-center" alt="" style="margin-right:350px; margin-left:30px">
 											</a>
 			</div>
 			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -54,17 +54,14 @@
 			  </div>
 			</div>
 	      <li class="nav-item">
-	        <a class="nav-link"	th:href="@{/user/shop}"	style="color: black; font-size: 16px; font-weight: 500;">SHOP</a>
+	        <a class="nav-link"	th:href="@{/user/shop}"	style="color: black; font-size: 16px; font-weight: 500;"><img style="margin-top:-10px; width:30px; height:30px;" th:src="@{/image/icons8-shop.gif}" alt="Example GIF" ></a>
 	      </li>
-		  <li class="nav-item">
-		          <a class="nav-link" th:href="@{/logout}"	style="color: black; font-size: 16px; font-weight: 500;">LOGOUT</a>
-		        </li>
-		  <li class="nav-item" >
-		    <a class="nav-link" th:href="@{/cart}" style="color: black; font-size: 16px; font-weight: 500;">CART</a>
-		  </li>
-		  <li class="nav-item active">
-		      <span class="nav-link" style="font-size:12px; font-weight: 900;" th:text="${cartCount}"></span>
-		  </li>
+		  <li clas="nav-item" >
+			<a class="nav-link" th:href="@{/cart}" style="margin-right:-10px;">	<img style="margin-top:-10px; width:30px; height:30px;" th:src="@{/image/icons8-shopping-bag.gif}" alt="Example GIF" ></a>	
+				  </li>
+		   <li clas="nav-item" >
+		  	 <a class="nav-link" th:text="${count}" style="margin-top:-15px; margin-right:-20px; color: black; font-size: 16px; font-weight: 500;"></a>
+		   </li>
 	    </ul>
 	  </div>
 	  

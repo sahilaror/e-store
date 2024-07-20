@@ -20,8 +20,22 @@
 			        </div>
 			        <div class="content">
 						<p style="text-align:right; margin-right:-50px;" th:text="${userInfo.email}"></p>
-						<h5 style="text-align: left; margin-top:60px;">Showing All Orders</h5>
-						<p style="text-align: center;">This is oder page</p>
+						<h5 style="text-align: left; margin-top:20px;">Showing All Orders</h5>
+						
+						<h1>Order History</h1>
+						   <div th:each="order : ${orders}">
+						       <h2>Order ID: <span th:text="${order.id}"></span></h2>
+						       <p>Order Date: <span th:text="${#dates.format(order.orderDate, 'yyyy-MM-dd HH:mm')}"></span></p>
+						       <div th:each="item : ${order.items}">
+						           <p>Product: <span th:text="${item.product.name}"></span></p>
+						           <p>Price: ₹<span th:text="${item.price}"></span></p>
+						           <p>Quantity: <span th:text="${item.quantity}"></span></p>
+						       </div>
+						       <p>Total: ₹<span th:text="${order.total}"></span></p>
+						   </div>
+						
+						
+						
 			        </div>
 			    </div>
 		</div>

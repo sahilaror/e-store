@@ -17,6 +17,13 @@ public class productModel {
 	private String imageName;
 	private String description;
 	private double price;
+	private int qty;
+	public int getQty() {
+		return qty;
+	}
+	public void setQty(int qty) {
+		this.qty = qty;
+	}
 	private double weight;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private categoryModel category;

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" th:fragment="Layout(content)">
+  <head>
+	
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+	    
+		<link rel="stylesheet" th:href="@{/css/style1.css}">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Garima Electrical - user</title>
+	<link rel="icon" type="image/png/jpg"  href="https://us.123rf.com/450wm/timbrk/timbrk1403/timbrk140300061/26566069-lightning-gold-symbol-on-a-black-background.jpg">
+  </head>
+  <body style="background-color:   rgb(251, 251, 251)">
+    <div>
+	<nav class="navbar navbar-expand-sm fixed-top navbar-light  py-2" style="background-color: white; text-decoration: none; border-bottom: 1px solid rgb(192, 192, 192);">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav  ml-auto text-uppercase">
+			<div class="align-self-center text-center">
+			<a class="btn" style="outline: none; box-shadow: none;" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+				<i class="fa-solid fa-bars-staggered  fa-lg" style="color: rgb(0, 0, 0); margin-left:580px;"></i>
+			</a>
+			<a th:href="@{/user/home} "><img th:src="@{/image/logo-color.png}"  src="../static/image/logo-color.png" width="130" height="45" class="d-inline-block align-top text-center" alt="" style="margin-right:350px; margin-left:30px">
+											</a>
+			</div>
+			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+			  <div class="offcanvas-header">
+			    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			  </div>
+			  <div class="offcanvas-body">
+				<div class="menu-container">
+				        <div class="menu">Menu</div>
+				        <hr>
+				        <ul class="menu-items">
+				            <li><a th:href="@{/user/account}">Account</a></li>
+				            <li><a th:href="@{/user/privatePolicy}">Privacy Policy</a></li>
+				            <li><a th:href="@{/user/refundPolicy}">Refund Policy</a></li>
+				            <li><a th:href="@{/user/termsAndConditions}">Terms & Conditions</a></li>
+				        </ul>
+						<div style="margin-top:280px;" class="text-center">
+							<hr>
+								<a href="https://www.instagram.com/sahilstagram__/"><i class="fa-brands fa-whatsapp fa-lg"  style="margin-right: 10px; color: black;"></i></a> 
+								<a href="https://www.instagram.com/sahilstagram__/"><i class="fa-brands fa-instagram fa-lg" style="margin-right: 10px; color: black;"></i></a> 							
+							    <a href="https://www.instagram.com/sahilstagram__/"><i class="fa-solid fa-x fa-lg" style="color: black;"></i></a>
+														
+						</div>
+				    </div>
+			  </div>
+			</div>
+			<li class="nav-item">
+				<a class="nav-link"	th:href="@{/user/shop}"	style="color: black; font-size: 16px; font-weight: 500;"><img style="margin-top:-10px; width:30px; height:30px;" th:src="@{/image/icons8-shop.gif}" alt="Example GIF" ></a>
+			</li>
+		  <li clas="nav-item" >
+		    <a class="nav-link" th:href="@{/cart}" style="margin-right:-10px;">	<img style="margin-top:-10px; width:30px; height:30px;" th:src="@{/image/icons8-shopping-bag.gif}" alt="Example GIF" ></a>
+		  </li>
+		  <li clas="nav-item" >
+		  	  	<a class="nav-link" th:text="${count}" style="margin-top:-15px; margin-right:-20px; color: black; font-size: 16px; font-weight: 500;"></a>
+		  	  </li>
+	    </ul>
+	  </div>
+	  
+	</nav>
+    </div>
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+	<div th:replace="${content}"></div>	
+	
+	
+	<script th:src="@{/js/script.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

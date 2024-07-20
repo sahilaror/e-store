@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base2::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+	
+</head>
+<body>
+	<section >
+		<div class="c">
+							<div class="container">
+							        <div class="content" style="background: url(./) ;">
+										<img style="height:300px; width: 300px; display: block; margin-left:400px; margin-top:20px;" th:src="@{/image/empty-cart.png}">
+										<h5 style="text-align: center;">Your cart is empty</h5>
+										<p style="text-align: center;">Looks like you haven't made your choice yet..</p>
+										<a th:href="@{/user/shop}"><button style="width:200px; height: 50px; margin-left:455px; background-color:#000; color: white; border-radius:6px;">Back to home</button></a>
+							        </div>
+							    </div>
+						</div>
+		</section>
+		     </body>
+			</html>
